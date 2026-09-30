@@ -1,0 +1,38 @@
+[
+  {
+    "id": "cuk_notice_20260929",
+    "title": "가톨릭대 2026년 11월 신규심의 접수 공지",
+    "url": "https://irb.catholic.ac.kr/irb/notice/notice.do?articleNo=276231&mode=view",
+    "published_on": "2026-09-29",
+    "checked_on": "2026-09-30",
+    "expert_reviewed": false,
+    "version_note": "서식 v3.8, 2026-07-28 승인 표기. 신규심의 서류 및 유의사항을 확인함.",
+    "locator": "I. 신규심의 신청서류, II. 생명윤리 관련 교육 이수",
+    "review_status": "public_source_checked",
+    "content_note": "수집한 정보에 따른 참가자 동의 서식과 연구자 제출 서식을 구분한다. 원문과 최신 첨부 서식은 링크에서 재확인한다."
+  },
+  {
+    "id": "cuk_guide_20241224",
+    "title": "가톨릭대 제출서류 안내",
+    "url": "https://irb.catholic.ac.kr/irb/guide-deli/documents_submitted.do",
+    "published_on": null,
+    "checked_on": "2026-09-30",
+    "expert_reviewed": false,
+    "version_note": "2024-12-24 승인 버전 표기. 2026년 공지와 버전이 다르므로 추가 조건을 확정하는 데 사용하지 않음.",
+    "locator": "제출서류 > 신규심의",
+    "review_status": "version_conflict",
+    "content_note": "조건이 구체적이지 않은 추가 항목은 기관 확인 목록에 보존한다."
+  },
+  {
+    "id": "snue_initial_guide",
+    "title": "서울교대 접수절차 안내 및 관련서식",
+    "url": "https://irb.snue.ac.kr/irb/cm/cntnts/cntntsView.do?cntntsId=3185&mi=3297",
+    "published_on": null,
+    "checked_on": "2026-09-30",
+    "expert_reviewed": false,
+    "version_note": "페이지 개정일 미표기. 조회일 기준 공개 안내이며 로그인 후 화면은 확인하지 않음.",
+    "locator": "제출서류 목록 > 신규심의 1~12, 참고, 제출방법",
+    "review_status": "public_source_checked",
+    "content_note": "전자 입력으로 대체되는 항목과 업로드하는 항목을 구분한다. 조건부 서류의 세부 적용 기준은 일부 미공개다."
+  }
+]

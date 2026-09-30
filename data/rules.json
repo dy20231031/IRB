@@ -1,0 +1,673 @@
+{
+  "version": "0.1.0-20260930",
+  "scope": "성인 설문 또는 인터뷰 신규심의의 일반 동의 경로",
+  "expert_reviewed": false,
+  "rules": [
+    {
+      "id": "cuk.application",
+      "institution": "cuk",
+      "document": "연구계획심의신청서 (별지 1)",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "공지에 첨부된 현행 서식을 확인하세요.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.protocol",
+      "institution": "cuk",
+      "document": "인간대상 연구계획서 (별지 2-1)",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.consent",
+      "institution": "cuk",
+      "document": "참가자 설명문 및 동의서 (별지 3-1)",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "대상 집단이 여러 개면 집단별 설명과 동의 서식을 준비합니다. 면제 경로는 별도 검토 대상입니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.participant_privacy",
+      "institution": "cuk",
+      "document": "참가자 개인정보 동의서 (별지 3-2)",
+      "delivery": "file",
+      "condition": {
+        "op": "any",
+        "items": [
+          {
+            "op": "equals",
+            "field": "collect_name",
+            "value": "yes"
+          },
+          {
+            "op": "equals",
+            "field": "collect_phone",
+            "value": "yes"
+          },
+          {
+            "op": "equals",
+            "field": "collect_email",
+            "value": "yes"
+          },
+          {
+            "op": "equals",
+            "field": "collect_unique_id",
+            "value": "yes"
+          },
+          {
+            "op": "equals",
+            "field": "recruitment_identifiers",
+            "value": "yes"
+          },
+          {
+            "op": "equals",
+            "field": "compensation_identifiers",
+            "value": "yes"
+          },
+          {
+            "op": "equals",
+            "field": "followup_identifiers",
+            "value": "yes"
+          }
+        ]
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "참가자의 개인식별정보를 다룬다고 확인했습니다. 모집, 보상, 재연락 과정도 포함하여 준비합니다.",
+      "unknown_reason": "개인식별정보 수집이 확인되지 않았더라도 서식 제외 근거가 충분하지 않습니다. 전체 수집 범위와 기관 기준을 확인해야 합니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "연구자 본인의 개인정보 동의서와 다른 항목입니다. 녹음, IP, 코드화 자료의 분류나 기관의 서식 적용 방식은 담당자에게 확인합니다.",
+      "review_fields": [
+        "collect_name",
+        "collect_phone",
+        "collect_email",
+        "collect_unique_id",
+        "collect_media",
+        "collect_sensitive",
+        "other_data",
+        "recruitment_identifiers",
+        "compensation_identifiers",
+        "followup_identifiers",
+        "platform_identifiers",
+        "linkage",
+        "external_data",
+        "inventory_complete"
+      ],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.sensitive_consent",
+      "institution": "cuk",
+      "document": "참가자 민감정보 동의서 (별지 3-3)",
+      "delivery": "file",
+      "condition": {
+        "op": "equals",
+        "field": "collect_sensitive",
+        "value": "yes"
+      },
+      "exclusion_condition": {
+        "op": "all",
+        "items": [
+          {
+            "op": "equals",
+            "field": "collect_sensitive",
+            "value": "no"
+          },
+          {
+            "op": "equals",
+            "field": "other_data",
+            "value": "no"
+          },
+          {
+            "op": "equals",
+            "field": "external_data",
+            "value": "no"
+          },
+          {
+            "op": "equals",
+            "field": "inventory_complete",
+            "value": "yes"
+          }
+        ]
+      },
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "민감할 수 있는 정보를 수집한다고 확인했습니다. 해당 서식을 준비하고 구체적 분류를 기관에 확인하세요.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "전체 수집 범위를 점검했고 민감정보, 미분류 항목, 외부 개인 자료를 다루지 않는다고 확인한 현재 조건입니다.",
+      "details": "민감정보 분류가 불명확하면 비해당으로 처리하지 마세요.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.instruments",
+      "institution": "cuk",
+      "document": "설문지 또는 인터뷰 질문지",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "참가자에게 실제 제시할 연구 도구를 준비합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.training",
+      "institution": "cuk",
+      "document": "생명윤리 교육 이수증",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "공지 기준 수료일로부터 2년 이내. 연구팀 각 연구자별로 확인합니다. 이 앱은 실제 이수증 날짜를 검사하지 않습니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.pledge",
+      "institution": "cuk",
+      "document": "생명윤리 준수서약서 (별지 4)",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "각 연구자별 준비 항목입니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.coi",
+      "institution": "cuk",
+      "document": "이해상충 공개서약서 (별지 5-1)",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "각 연구자별 준비 항목입니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.advisor",
+      "institution": "cuk",
+      "document": "지도교수 서약서 (별지 7)",
+      "delivery": "file",
+      "condition": {
+        "op": "equals",
+        "field": "graduate_student",
+        "value": "yes"
+      },
+      "exclusion_condition": {
+        "op": "equals",
+        "field": "graduate_student",
+        "value": "no"
+      },
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "석사 또는 박사 과정 연구자가 포함되어 있습니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "연구자 중 석사 또는 박사 과정 학생이 없다고 확인했습니다.",
+      "details": "석사 또는 박사 과정 연구자에 해당하는 서류입니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.researcher_privacy",
+      "institution": "cuk",
+      "document": "연구자 개인정보 동의서 (별지 8-1)",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "연구자 본인에 관한 서류입니다. 참가자 연락처를 수집하지 않아도 이 항목은 별도로 준비합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.cv",
+      "institution": "cuk",
+      "document": "연구자 이력서 (별지 10)",
+      "delivery": "file",
+      "condition": {
+        "op": "equals",
+        "field": "all_fulltime_faculty",
+        "value": "no"
+      },
+      "exclusion_condition": {
+        "op": "equals",
+        "field": "all_fulltime_faculty",
+        "value": "yes"
+      },
+      "source_ids": [
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "연구팀에 전임교원이 아닌 연구자가 있습니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "모든 연구자가 전임교원이라고 확인했습니다. 공지의 전임교원 이력서 제외 조건을 적용합니다.",
+      "details": "전임교원을 제외한 연구자별로 준비합니다. 현 소속을 확인할 수 있어야 합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.budget",
+      "institution": "cuk",
+      "document": "연구비 집행계획서",
+      "delivery": "institution_confirmation",
+      "condition": {
+        "op": "unresolved"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_guide_20241224",
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "일반 안내에 조건부로 나오지만 적용 조건과 최신 버전 관계가 명확하지 않습니다. 기관에 확인하세요.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "일반 안내의 조건부 항목입니다. 2026년 공지와의 적용 관계를 확인한 뒤 확정해야 합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.recruitment",
+      "institution": "cuk",
+      "document": "모집 관련 문서",
+      "delivery": "institution_confirmation",
+      "condition": {
+        "op": "unresolved"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_guide_20241224",
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "일반 안내에 조건부로 나오지만 적용 조건과 최신 버전 관계가 명확하지 않습니다. 기관에 확인하세요.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "일반 안내의 조건부 항목입니다. 2026년 공지와의 적용 관계를 확인한 뒤 확정해야 합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.compensation",
+      "institution": "cuk",
+      "document": "피해보상 규약",
+      "delivery": "institution_confirmation",
+      "condition": {
+        "op": "unresolved"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_guide_20241224",
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "일반 안내에 조건부로 나오지만 적용 조건과 최신 버전 관계가 명확하지 않습니다. 기관에 확인하세요.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "일반 안내의 조건부 항목입니다. 2026년 공지와의 적용 관계를 확인한 뒤 확정해야 합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "cuk.additional",
+      "institution": "cuk",
+      "document": "주관기관 관련 증빙 등 추가 서류",
+      "delivery": "institution_confirmation",
+      "condition": {
+        "op": "unresolved"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "cuk_guide_20241224",
+        "cuk_notice_20260929"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "일반 안내에 조건부로 나오지만 적용 조건과 최신 버전 관계가 명확하지 않습니다. 기관에 확인하세요.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "일반 안내의 조건부 항목입니다. 2026년 공지와의 적용 관계를 확인한 뒤 확정해야 합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.application",
+      "institution": "snue",
+      "document": "심의 신청 (별지 1-1 해당 과제)",
+      "delivery": "portal",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "공개 안내에서는 별도 파일 대신 eIRB 신청으로 처리합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.protocol",
+      "institution": "snue",
+      "document": "연구계획서 (별지 1-3)",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.consent",
+      "institution": "snue",
+      "document": "참가자 설명문 및 동의서 (붙임 1)",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "동의 면제 사유서로 대체하는 경로는 별도로 확인해야 합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.instruments",
+      "institution": "snue",
+      "document": "수집 정보 목록과 연구 도구",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "설문지나 인터뷰 항목 등 연구에서 얻는 정보를 정리합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.coi",
+      "institution": "snue",
+      "document": "이해상충 공개 (별지 8-1 해당 과제)",
+      "delivery": "portal",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "eIRB 신청으로 처리하도록 안내되어 있습니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.cv",
+      "institution": "snue",
+      "document": "책임연구자 이력과 연구자 정보 (별지 4-1, 4-2)",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "최근 2년 이내 이력과 경력 문서 조건을 확인하여 업로드합니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.training",
+      "institution": "snue",
+      "document": "연구윤리 교육 이수 증빙",
+      "delivery": "file",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "eIRB 업로드 항목입니다. 이 안내에는 교육 이수증 유효기간이 명시되어 있지 않아 다른 기관의 2년 조건을 적용하지 않습니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.pledge",
+      "institution": "snue",
+      "document": "생명윤리 준수서약 (별지 12 해당 과제)",
+      "delivery": "portal",
+      "condition": {
+        "op": "always"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "eIRB 신청으로 처리하도록 안내되어 있습니다.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.budget",
+      "institution": "snue",
+      "document": "연구비 집행계획서 (별지 15)",
+      "delivery": "institution_confirmation",
+      "condition": {
+        "op": "unresolved"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "해당 시 제출하도록 안내되어 있으나 구체적인 적용 기준이 확인되지 않았습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "공개 안내상 조건부 항목입니다. 기관이 정한 구체적 적용 조건을 확인하세요.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.recruitment",
+      "institution": "snue",
+      "document": "모집 관련 문서",
+      "delivery": "institution_confirmation",
+      "condition": {
+        "op": "unresolved"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "해당 시 제출하도록 안내되어 있으나 구체적인 적용 기준이 확인되지 않았습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "공개 안내상 조건부 항목입니다. 기관이 정한 구체적 적용 조건을 확인하세요.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.additional",
+      "institution": "snue",
+      "document": "위원회가 별도로 요구하는 서류",
+      "delivery": "institution_confirmation",
+      "condition": {
+        "op": "unresolved"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "해당 시 제출하도록 안내되어 있으나 구체적인 적용 기준이 확인되지 않았습니다.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "공개 안내상 조건부 항목입니다. 기관이 정한 구체적 적용 조건을 확인하세요.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.advisor",
+      "institution": "snue",
+      "document": "지도교수 작성 서류 (별지 14)",
+      "delivery": "file",
+      "condition": {
+        "op": "equals",
+        "field": "graduate_student",
+        "value": "yes"
+      },
+      "exclusion_condition": {
+        "op": "equals",
+        "field": "graduate_student",
+        "value": "no"
+      },
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "석사 또는 박사 과정 연구자가 포함되어 있습니다.",
+      "unknown_reason": "적용 조건을 확인하지 못했습니다. 임의로 제외하지 않습니다.",
+      "excluded_reason": "연구자 중 석사 또는 박사 과정 학생이 없다고 확인했습니다.",
+      "details": "안내상 지도교수가 연구계획서에 대해 직접 작성하고 서명한 의견서입니다. 실제 내려받은 서식의 명칭과 개정판을 확인하세요.",
+      "review_fields": [],
+      "expert_reviewed": false
+    },
+    {
+      "id": "snue.privacy_check",
+      "institution": "snue",
+      "document": "개인정보 관련 별도 서식 여부 확인",
+      "delivery": "institution_confirmation",
+      "condition": {
+        "op": "unresolved"
+      },
+      "exclusion_condition": null,
+      "source_ids": [
+        "snue_initial_guide"
+      ],
+      "required_reason": "해당 기관의 신규심의 기본 항목이며 입력한 연구가 이 앱의 지원 범위에 해당합니다.",
+      "unknown_reason": "공개 목록만으로 수집 정보별 별도 동의 서식의 적용 조건을 확인하지 못했습니다. 입력한 수집 범위를 바탕으로 기관에 문의하세요.",
+      "excluded_reason": "사용자가 확인한 조건에 한해 이 항목이 적용되지 않습니다.",
+      "details": "이 항목은 문서명이 아니라 확인 과제입니다. 다른 대학의 개인정보 서식 조건을 서울교대에 그대로 적용하지 않습니다.",
+      "review_fields": [
+        "collect_name",
+        "collect_phone",
+        "collect_email",
+        "collect_unique_id",
+        "collect_media",
+        "collect_sensitive",
+        "other_data",
+        "recruitment_identifiers",
+        "compensation_identifiers",
+        "followup_identifiers",
+        "platform_identifiers",
+        "linkage",
+        "external_data",
+        "inventory_complete"
+      ],
+      "expert_reviewed": false
+    }
+  ]
+}

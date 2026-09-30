@@ -1,0 +1,12 @@
+[
+  {"id":"phone_no_name_yes","institution":"cuk","in_scope":true,"answers":{"collect_phone":"no","collect_name":"yes"},"expected":{"cuk.participant_privacy":"required","cuk.researcher_privacy":"required"}},
+  {"id":"phone_no_only","institution":"cuk","in_scope":true,"answers":{"collect_phone":"no"},"expected":{"cuk.participant_privacy":"needs_confirmation"}},
+  {"id":"payment_identifiers","institution":"cuk","in_scope":true,"answers":{"collect_phone":"no","compensation_identifiers":"yes"},"expected":{"cuk.participant_privacy":"required"}},
+  {"id":"sensitive_yes","institution":"cuk","in_scope":true,"answers":{"collect_sensitive":"yes"},"expected":{"cuk.sensitive_consent":"required"}},
+  {"id":"sensitive_no_incomplete","institution":"cuk","in_scope":true,"answers":{"collect_sensitive":"no"},"expected":{"cuk.sensitive_consent":"needs_confirmation"}},
+  {"id":"student_cuk","institution":"cuk","in_scope":true,"answers":{"graduate_student":"yes","all_fulltime_faculty":"no"},"expected":{"cuk.advisor":"required","cuk.cv":"required"}},
+  {"id":"faculty_exception","institution":"cuk","in_scope":true,"answers":{"graduate_student":"no","all_fulltime_faculty":"yes"},"expected":{"cuk.advisor":"not_applicable","cuk.cv":"not_applicable"}},
+  {"id":"student_snue","institution":"snue","in_scope":true,"answers":{"graduate_student":"yes"},"expected":{"snue.advisor":"required","snue.application":"required","snue.privacy_check":"needs_confirmation"}},
+  {"id":"minors_outside_scope","institution":"cuk","in_scope":true,"answers":{"adult_only":"no","collect_name":"yes"},"expected":{"cuk.application":"needs_confirmation","cuk.participant_privacy":"needs_confirmation"}},
+  {"id":"all_unknown","institution":"snue","in_scope":false,"answers":{},"expected":{"snue.protocol":"needs_confirmation","snue.advisor":"needs_confirmation"}}
+]
